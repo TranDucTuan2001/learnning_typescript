@@ -3,7 +3,7 @@
 Các kiểu dữ liệu bạn đã biết bên Javascript
 Primitive: number, boolean, string, null, undefined, symbol
 Reference: array, object, function
-Còn typescript, bạn sẽ bắt gặp: any, unknown, void, never, ...*/ 
+Còn typescript, bạn sẽ bắt gặp: any, unknown, void, never, ...*/
 
 let count = 5;
 count = 'five';
@@ -45,9 +45,9 @@ let channelName = 'Easy Frontend'; // let channelName: string
 let isActive = false; // let isActive: boolean
 
 const student = {
-id: 1,
-name: 'Easy Frontend',
-}
+  id: 1,
+  name: 'Easy Frontend',
+};
 // this is how ts understand:
 // const student: {
 // id: number;
@@ -57,9 +57,9 @@ name: 'Easy Frontend',
 student.name = 'Typescript is easy! :P'; // works
 
 const student = {
-id: 1,
-name: 'Easy Frontend',
-} as const
+  id: 1,
+  name: 'Easy Frontend',
+} as const;
 // this is how ts understand:
 // const student: {
 // readonly id: 1;
@@ -69,27 +69,25 @@ name: 'Easy Frontend',
 student.name = 'Typescript is easy, really?!';
 // error: Cannot assign to 'name' because it is a read-only property.
 
-
 // Tương tự như object, array cũng có behavior tương tự.
 
 const numberList = [1, 2, 3];
 // ts understand: const numberList: number[]
-const numberListAsConst = [1, 2, 3] as const
+const numberListAsConst = [1, 2, 3] as const;
 // ts understand: const numberListAsConst: readonly [1, 2, 3]
 
 // Type Assertion
 
 function getStatusName(state: 'active') {
-console.log(state);
+  console.log(state);
 }
 let s = 'active'; // let s: string
-getStatusName(s)
-// ts error: Argument of type 'string' is not assignable to parameter of
-type '"active"'.ts(2345)
+getStatusName(s);
+// ts error: Argument of type 'string' is not assignable to parameter of type '"active"'.ts(2345)
 // solution 1
 let s: 'active' = 'active'; // or const s = 'active'
 getStatusName(s);
 
 // solution 2
 let s = 'active';
-getStatusName(s as 'active')
+getStatusName(s as 'active');
